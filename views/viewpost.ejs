@@ -1,0 +1,42 @@
+<%- include('partials/header') -%>
+    <div class="container mt-8">
+        <div class="row">
+          <div class="col-sm-12">
+              
+            <h3><%= user.topic %></h3>
+            <p><%= user.discussion %></p>
+          </div>
+          
+        </div>
+        <h3>Replies</h3>
+        <div class="ui comments">
+            <% for(items of replies){%>
+            <div>
+            <div class="comment">
+           <a class="avatar">
+             <img src="https://cdn-icons-png.flaticon.com/512/219/219983.png">
+           </a>
+           <div class="content">
+             <a class="author">Anonymous</a>
+             <div class="text">
+                <%= items.reply %>
+             </div>
+            </div>
+             <% } %> 
+            
+           </div>
+         </div>
+       </div>
+       <form class="ui reply form" method="POST" action="/thisdiscussion/<%= user._id %>">
+        <div class="field">
+          <textarea name="reply"></textarea>
+        </div>
+        <div >
+          <button class="ui primary submit labeled icon button" type="submit">Add Reply</button> 
+        </div>
+      </form>
+      </div> 
+      
+      
+</body>
+</html>
